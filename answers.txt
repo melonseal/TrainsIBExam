@@ -1,0 +1,133 @@
+1. A constructor allows the programmer to easily and quickly initialize
+ new objects within a class. The programmer can set instance variables
+ and define a new object in a specific class in one line of code. For each
+ class, a constructor is written, along with instance variables and methods.
+
+ 2. Polymorphism is when an object can take different forms. It is often
+ accomplished using a parent class with many child classes. In this example,
+ RollingStock expresses polymorphism that allows the programmer to define
+ types of RollingStock objects in order to allow it to serve different
+ functions in the train. Subclasses can override parent methods to create,
+ in this case, different types of train sections that all have the basic
+ train section features, but each express some of their own features. It
+ would be inefficient to re-code all the basic train section methods, but
+ polymorphism allows engines and wagons to access the getWeight() method,
+ for example, while each having separate methods.
+
+ 3. Train
+    - mEngines : Engine[]
+    - mWagons: Wagon[]
+    - mEngineCount: int
+    - mTrainNumber: int
+    - mWeight: double
+
+    + addEngine ( newEngine : Engine) : void
+    + removeEngine () : Engine
+    + addWagon ( newWagon : Wagon) : void
+    + getNumberofWagons () : int
+    + removeWagon () : Wagon
+    + getWeight() : double
+
+
+ 4. public int getNumberofWagons(){
+                return this.mWagonCount;
+            }
+
+ 5. public Wagon removeWagon()
+            {
+                Wagon returnWagon;
+                if(this.mWagonCount > 0){
+                    this.mWagonCount --;
+                    returnWagon = this.mWagons[this.mWagonCount];
+                }else{
+                    returnWagon = null;
+                }
+                return returnWagon;
+            }
+
+ 6. Using standard library collections allows new types of data, such as
+ ArrayList, to be accessible to everyone for free. It standardizes
+ solutions to problems such as fixed-length arrays in an efficient way.
+
+ 7. Programming by a team requires additional collaboration and planning,
+ whereas individual programmers may be able to get away with less
+ planning. In a team, tasks must be delegated. Team programmers must also
+ organize a way for all programmers to either collaborate on the same file
+ or work separately and then combine files, but this issue is not present
+ for an individual programming.
+
+ 8. i. String
+    ii. int
+    iii. boolean
+
+ 9. The Parcel class, instead of having two String instance variables
+ destinationAddress and originAddress, must have two Address instance
+ variables. The Parcel class could have a method to access the Addresses
+ that would return an Address and make use of a toString() method written
+ in the Address class. A method that takes a String parameter specifying
+ the type of information could be used to access a specific piece of
+ this Parcel's address, such as first name or business name. Methods could
+ also be implemented to determine if the Parcel is sent to or received
+ by a business or a consumer.
+
+ 10. These two new classes could extend an Address class that contains
+ instance variables such as street name and building number. This Address
+ class could also contain a toString method that would print these basic
+ details. OriginAddress and DestinationAddress could each add their specific
+ instance variables such as a boolean collectedFromHouse or a String
+ specialInstructions. These variables would be added to the Address toString
+ method by calling super.toString and adding the specific variables.
+
+ 11. i. Array containing two Engines: one with an id of 7 and one with an
+        id of 9
+     ii. 2
+     iii. Array containing two Wagons: one with an id of 23 and one with an
+        id of 214
+
+ 12.  public double getWeight()
+              {
+                  double thisWeight = 0;
+                  for(int i = 0; i < this.mParcelCount; i++){
+                      thisWeight += this.mParcels[i].getWeight();
+                  }
+                  thisWeight += super.getWeight();
+                  return thisWeight;
+              }
+
+ 13. public double getWeight()
+             {
+                 double total = 0;
+                 for(int i = 0; i < this.mEngineCount; i++){
+                     total += this.mEngines[i].getWeight();
+                 }
+                 for(int j = 0; j < this.mWagonCount; j++){
+                     total += this.mWagons[j].getWeight();
+                 }
+                 return total;
+             }
+
+ 14. The getWeight() method in the RollingStock class is specific to
+ that class and is not connected to the separate getWeight() method in
+ the Train class. They have the same name, but they are entirely
+ different methods and the Train method is written separately from
+ the method in the RollingStock class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
